@@ -24,10 +24,14 @@ export const taskSlice = createSlice({
     reducers:{ //Donde nos encargamos de crear funciones que actualicen al ESTADO.
         addTask: (state, action) => {
             state.push(action.payload)
+        },
+        deleteTask: (state, action) => {
+            const deleteTask = state.find(task => task.id === action.payload)
+            if(deleteTask) state.splice(state.indexOf(deleteTask), 1)
         }
     }
 })
 
-export const {addTask} = taskSlice.actions
+export const {addTask, deleteTask} = taskSlice.actions
 
 export default taskSlice.reducer

@@ -1,8 +1,16 @@
 import { useSelector } from "react-redux"
+import {BsTrashFill} from 'react-icons/bs'
+import { useDispatch } from "react-redux"
+import { deleteTask } from "../features/tasks/taskSlice"
 
 export default function TaskList() {
 
+  const dispatch = useDispatch()
   const tasks = useSelector(state => state.tasks)
+
+  const handleDelete = id => {
+    dispatch(deleteTask(id))
+  }
 
   return (
     <div>
@@ -10,6 +18,9 @@ export default function TaskList() {
         <div key={task.id}>
           <h3>{task.title}</h3>
           <p>{task.description}</p>
+          <button onClick={() => handleDelete(task.id)}>
+            <BsTrashFill></BsTrashFill>
+          </button>
         </div>
 
       ))}
