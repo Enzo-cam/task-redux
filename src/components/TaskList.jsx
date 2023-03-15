@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import {BsTrashFill} from 'react-icons/bs'
 import { useDispatch } from "react-redux"
 import { deleteTask } from "../features/tasks/taskSlice"
+import { Link } from "react-router-dom"
 
 export default function TaskList() {
 
@@ -14,6 +15,12 @@ export default function TaskList() {
 
   return (
     <div>
+      <header>
+        <h1>Tasks {tasks.length}</h1>
+        <Link to='/create'>
+          Create a task
+        </Link>
+      </header>
       {tasks.map(task => (
         <div key={task.id}>
           <h3>{task.title}</h3>

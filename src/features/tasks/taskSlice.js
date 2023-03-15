@@ -1,3 +1,8 @@
+//Funciones que querramos llamar para ACTUALIZAR el estado
+// import { useDispatch } from 'react-redux'
+//Formas de las cuales traemos datos que estan DENTRO del estado.
+// import { useSelector } from 'react-redux'
+
 //Funciones que se haran dentro del estado
 //Crear, eliminar, updatear, listar.
 import { createSlice } from "@reduxjs/toolkit";
