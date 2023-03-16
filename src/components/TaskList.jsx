@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux"
 import {BsTrashFill} from 'react-icons/bs'
+import {AiFillEdit} from 'react-icons/ai'
 import { useDispatch } from "react-redux"
-import { deleteTask } from "../features/tasks/taskSlice"
+import { deleteTask, editTask } from "../features/tasks/taskSlice"
 import { Link } from "react-router-dom"
 
 export default function TaskList() {
@@ -28,6 +29,9 @@ export default function TaskList() {
           <button onClick={() => handleDelete(task.id)}>
             <BsTrashFill></BsTrashFill>
           </button>
+          <Link to={`/edit/${task.id}`}>
+            <AiFillEdit></AiFillEdit>
+          </Link>
         </div>
 
       ))}
