@@ -15,26 +15,32 @@ export default function TaskList() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>Tasks {tasks.length}</h1>
-        <Link to='/create'>
+    <div className="w-4/6">
+      <header className="flex justify-between items-center py-4">
+        <h1 className="text-xl">Tasks to do: {tasks.length}</h1>
+        <Link to='/create' className="bg-orange-600 py-1 px-2 font-semibold rounded-sm">
           Create a task
         </Link>
       </header>
-      {tasks.map(task => (
-        <div key={task.id}>
-          <h3>{task.title}</h3>
-          <p>{task.description}</p>
-          <button onClick={() => handleDelete(task.id)}>
-            <BsTrashFill></BsTrashFill>
-          </button>
-          <Link to={`/edit/${task.id}`}>
-            <AiFillEdit></AiFillEdit>
-          </Link>
-        </div>
+      <div className="grid grid-cols-3 gap-3">
+        {tasks.map(task => (
+          <div key={task.id} className="bg-white text-black p-2 rounded-md">
+            <header className="flex justify-between mb-2">
+              <h3 className="text-lg font-semibold">{task.title}</h3>
+              <div className="flex items-center gap-2">
+                <Link to={`/edit/${task.id}`}>
+                  <AiFillEdit></AiFillEdit>
+                </Link>
+                <button className="text-red-600" onClick={() => handleDelete(task.id)}>
+                  <BsTrashFill></BsTrashFill>
+                </button>
+              </div>
+            </header>
+            <p className="mb-2">{task.description}</p>
+          </div>
 
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
