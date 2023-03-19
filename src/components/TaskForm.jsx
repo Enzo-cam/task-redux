@@ -46,13 +46,23 @@ export default function TaskForm() {
 
   return (
     <div>
-      <Link to='/'>
+      <Link to='/' className="">
         Go to Task List
       </Link>
-    <form onSubmit={handleSubmit}>
-      <input onChange={handleChange} value={task.title} name="title" type="text" placeholder="title" />
-      <textarea onChange={handleChange} value={task.description} name="description" placeholder="Describe your task"></textarea>
-      <button type="submit">Save</button>
+
+    <form onSubmit={handleSubmit} className="bg-zinc-700 max-w-md p-4 flex flex-col gap-2">
+      <div>
+        <label htmlFor="title" className="block text-md font-bold">Task Title:</label>
+        <input onChange={handleChange} value={task.title} name="title" type="text" placeholder="title" className="text-black" />
+      </div>
+      
+      <div>
+        <label htmlFor="description" className="block text-md font-bold">Describe the task</label>
+        <textarea onChange={handleChange} value={task.description} name="description" placeholder="I have to..." className="text-black w-full p-2"></textarea>
+      </div>
+      
+      <button type="submit" className="bg-orange-600 font-semibold p-2">Save</button>
+
     </form>
     </div>
   )
