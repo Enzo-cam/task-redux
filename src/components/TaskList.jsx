@@ -16,13 +16,13 @@ export default function TaskList() {
 
   return (
     <div className="w-4/6">
-      <header className="flex justify-between items-center py-4">
+      <header className="flex justify-between items-center w-4/12 mx-auto py-4 mb-4">
         <h1 className="text-xl">Tasks to do: {tasks.length}</h1>
         <Link to='/create' className="bg-orange-600 py-1 px-2 font-semibold rounded-sm">
           Create a task
         </Link>
       </header>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 w-8/12 mx-auto">
         {tasks.map(task => (
           <div key={task.id} className="bg-white text-black p-2 rounded-md">
             <header className="flex justify-between mb-2">
