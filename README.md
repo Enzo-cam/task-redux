@@ -14,7 +14,7 @@ I made it just for learning Redux and understand what the library can offer.
 
 To install the application, clone the repository and run the following commands: 
 - npm install
-- npm run dev
+- npm run dev  
 Once the application is running, navigate to localhost:3000 in your web browser to use the application.
 
 
